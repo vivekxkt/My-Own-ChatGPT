@@ -217,3 +217,38 @@ form img {
     
   }
 }
+
+
+
+@media(max-width: 396px) {
+  #app {
+    height: 100vh;
+  }
+    
+  .wrapper {
+    width: 100%;
+    padding: 15px;
+    border-radius: 1rem;
+    
+    
+  }
+
+  .false{
+    width: 100%;
+    margin-left: 2.5rem;
+  }
+
+  .ai {
+    background: #28282ecb;
+    width: 80%;
+    margin-left: 2.5rem;
+    
+    
+  }
+
+  form {
+    width: 90%;
+    
+    
+  }
+}
