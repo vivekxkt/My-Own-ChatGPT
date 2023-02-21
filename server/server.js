@@ -38,9 +38,9 @@ app.post('/',async (req,res)=>{
             prompt : `${prompt}`,
             temperature : 1,
             max_tokens : 10000,
-            top_p : 0.8,
-            frequency_penalty : 0.9,
-            presence_penalty : 0.5 ,
+            top_p : 1,
+            frequency_penalty : 0,
+            presence_penalty : 0 ,
             
 
         });
