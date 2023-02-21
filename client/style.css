@@ -79,8 +79,10 @@ html{
 
 .false{
   width: 80%;
-  height: auto;
+  
   margin: auto;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
   
   
 }
@@ -88,8 +90,8 @@ html{
 .ai {
   background: #28282ecb;
   width: 80%;
-  height: auto;
   margin: auto;
+  margin-top: 0.4rem;
   
 }
 
@@ -209,6 +211,8 @@ form img {
   .false{
     width: 80%;
     margin: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
     
   }
 
@@ -216,6 +220,7 @@ form img {
     background: #28282ecb;
     width: 80%;
     margin: auto;
+    margin-top: 0.4rem;
     
     
   }
@@ -246,6 +251,8 @@ form img {
   .false{
     width: 80%;
     margin: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
     
   }
 
@@ -253,6 +260,7 @@ form img {
     background: #28282ecb;
     width: 80%;
     margin: auto;
+    margin-top: 0.4rem;
     
     
     
@@ -283,14 +291,15 @@ form img {
   .false{
     width: 80%;
     margin: auto;
-    /* margin-left: 2.5rem; */
+    margin-top: 0.4rem;
+    margin-bottom: 0;
   }
 
   .ai {
     background: #28282ecb;
     width: 80%;
     margin: auto;
-    /* margin-left: 2.5rem; */
+    margin-top: 0.4rem;
     
     
   }
