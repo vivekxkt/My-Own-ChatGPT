@@ -23,20 +23,36 @@ function loader(element){
 
 
 
-function typeText(element , text){
+function typeText(element, text, callback) {
   let index = 0;
+  const scrollInterval = 10;
 
-  let interval = setInterval(() =>{
-    if(index < text.length){
-      element.innerHTML +=text.charAt(index);
+  let interval = setInterval(() => {
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
       index++;
 
-    }
-    else{
+      if (callback) {
+        callback();
+      }
+    } else {
       clearInterval(interval);
     }
-  }, 20)
+  }, 20);
+  
+  // Scroll to the bottom of the chat container every `scrollInterval` milliseconds
+  let scrollIntervalId = setInterval(() => {
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }, scrollInterval);
+
+  // Clear the scroll interval once the text has finished typing
+  interval = setInterval(() => {
+    if (index >= text.length) {
+      clearInterval(scrollIntervalId);
+    }
+  }, 20);
 }
+
 
 function generateUniqueId(){
 
@@ -47,6 +63,45 @@ function generateUniqueId(){
   return `id-${timestamp}-${hexadecimalString}`;
 
 }
+
+
+// Get the chat container element
+// const chatContainer = document.getElementById('chat_container');
+const chatContainer = document.getElementById('chat_container');
+
+
+// Function to scroll the chat container to the bottom
+// function scrollToBottom() {
+//   chatContainer.scrollTop = chatContainer.scrollHeight;
+//   // chatContainer.lastElementChild.scrollIntoView({ behavior: 'smooth' });
+// }
+
+function scrollToBottom() {
+  chatContainer.scrollTo({
+    top: chatContainer.scrollHeight,
+    behavior: 'smooth'
+  });
+}
+
+
+function smoothScroll() {
+  const scrollStep = Math.PI / (scrollDuration / scrollInterval);
+  const cosParameter = chatContainer.scrollHeight / 2;
+  let scrollCount = 0;
+  let scrollMargin;
+
+  const interval = setInterval(() => {
+    if (chatContainer.scrollTop !== chatContainer.scrollHeight - chatContainer.offsetHeight) {
+      scrollCount = scrollCount + 1;
+      scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+      chatContainer.scrollTop = chatContainer.scrollHeight - chatContainer.offsetHeight - scrollMargin;
+    } else {
+      clearInterval(interval);
+    }
+  }, scrollInterval);
+}
+
+
 
 function chatStripe (isAi , value, uniqueId) {
   return(
@@ -66,9 +121,17 @@ function chatStripe (isAi , value, uniqueId) {
       </div>
 
     </div>
+
+    
     `
+
+    
   )
+ 
+
 }
+
+
 
 
 const handleSubmit = async (e) =>{
@@ -92,10 +155,13 @@ const handleSubmit = async (e) =>{
 
   loader(messageDiv)
 
+  // Scroll to the bottom of the chat container
+  scrollToBottom();
+
 
   // fetch data from server 
 
-  const response = await fetch('https://jack-bot-sexr.onrender.com', {
+  const response = await fetch('http://localhost:5000/', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -112,7 +178,13 @@ const handleSubmit = async (e) =>{
     const data = await response.json();
     const parsedData = data.bot.trim();
 
-    typeText(messageDiv,parsedData);
+    typeText(
+      messageDiv,
+      parsedData,
+      () => (chatContainer.scrollTop = chatContainer.scrollHeight)
+    );
+
+    smoothScroll();
   }
   else{
     const err =  await response.text();
