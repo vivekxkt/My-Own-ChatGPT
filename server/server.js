@@ -36,11 +36,11 @@ app.post('/',async (req,res)=>{
 
             model : "text-davinci-003",
             prompt : `${prompt}`,
-            temperature : 1,
-            max_tokens : 8000,
-            top_p : 1,
-            frequency_penalty : 0,
-            presence_penalty : 0 ,
+            temperature : 0.7,
+            max_tokens : 5000,
+            top_p : 0.9,
+            frequency_penalty : 0.1,
+            presence_penalty : 0.1 ,
             
             
 
