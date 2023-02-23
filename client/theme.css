@@ -19,6 +19,7 @@ body.theme-light {
     background: rgba(216, 213, 213, 0.859);
     color: #0f0d0d;
     transition: background-color 1s ease-in-out;
+   
 }
 
 body.theme-light #undefined {
