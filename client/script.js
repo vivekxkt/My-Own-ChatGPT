@@ -85,7 +85,6 @@ function scrollToBottom() {
 
 
 function smoothScroll() {
-  const scrollStep = Math.PI / (scrollDuration / scrollInterval);
   const cosParameter = chatContainer.scrollHeight / 2;
   let scrollCount = 0;
   let scrollMargin;
@@ -93,12 +92,11 @@ function smoothScroll() {
   const interval = setInterval(() => {
     if (chatContainer.scrollTop !== chatContainer.scrollHeight - chatContainer.offsetHeight) {
       scrollCount = scrollCount + 1;
-      scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
-      chatContainer.scrollTop = chatContainer.scrollHeight - chatContainer.offsetHeight - scrollMargin;
+     
     } else {
       clearInterval(interval);
     }
-  }, scrollInterval);
+  });
 }
 
 
