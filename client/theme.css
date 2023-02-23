@@ -3,11 +3,11 @@
     border-radius: 50%;
     color: #fe0606;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 34px;
     padding: 10px;
     position: fixed;
     right: 20px;
-    top: 20px;
+    top: 10px;
     z-index: 2;
     transition: color 1s ease;
     
@@ -19,11 +19,12 @@ body.theme-light {
     background: rgba(216, 213, 213, 0.859);
     color: #0f0d0d;
     transition: background-color 1s ease-in-out;
+    
    
 }
 
 body.theme-light #undefined {
-    color: black;
+    color: rgb(0, 0, 0);
     font-weight: 500;
     transition: color 1s ease;
 }
@@ -37,4 +38,90 @@ body.theme-light .ai{
 body.theme-light .theme-btn{
     color: #1d1d24;
     transition: color 1s ease;
+}
+
+.left-nav{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+    height: 93vh;
+    
+    margin-top: 1rem;
+    
+    margin-left: 0.5rem;
+    
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    background: #18181dff;
+    border-radius: 1rem;
+    cursor: pointer;
+    overflow: scroll;
+    
+
+}
+
+.left-nav::-webkit-scrollbar{
+    display: none;
+}
+
+
+.left-nav box-icon{
+    
+    border-radius: 50%;
+    
+}
+
+
+.nav-btn{
+    display: flex;
+    color: white;
+    font-size: 0rem;
+    padding: 10px 15px;
+    
+    background: #38383f;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.nav-btn h2{
+    color: white;
+    font-size: 17px;
+    margin-left: 10px;
+
+}
+
+
+.nav-img{
+    display:block;
+    
+}
+
+.nav-img img{
+    margin-left: 2.2rem;
+    border-radius: 50%;
+    height: 35px;
+}
+
+.nav-img .fb{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.nav-img box-icon{
+    margin-top: 1rem;
+    margin-left: 2.2rem;
+}
+
+
+@media(max-width:400px){
+    .left-nav{
+        display: none;
+    }
+
+    .theme-btn{
+        display: none;
+    }
 }
