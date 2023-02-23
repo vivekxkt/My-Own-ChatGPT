@@ -206,7 +206,7 @@ form.addEventListener('keyup', (e) =>{
 
 })
 
-
+// -----------------------------------------------------------------------------------------------------------------------------
 const themeBtn = document.querySelector('.theme-btn');
 
 themeBtn.addEventListener('click', () => {
@@ -215,18 +215,13 @@ themeBtn.addEventListener('click', () => {
 });
 
 
+function alertmsg(){
+    alert(`Recent Updates
+    1) Added Auto Scrolling feature.
+    2) Add a button to change Theme (Dark/White)
+    3) Added a side Nav (Under development)`)
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
