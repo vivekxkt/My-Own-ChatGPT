@@ -169,8 +169,8 @@ html{
 }
 
 form {
-  width: 100%;
-  max-width: 1280px;
+  width: 90%;
+  max-width: 1480px;
   margin: 0 auto;
   padding: 10px;
   background: #23232c;
@@ -227,110 +227,3 @@ form img {
 
 
 /* ========================================= */
-@media only screen and (max-width: 600px) {
-
-    
-  .wrapper {
-    width: 100%;
-    padding: 15px;
-    border-radius: 1rem;
-    
-    
-  }
-
-  .false{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
-
-  .ai {
-    background: #28282ecb;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
-  }
-
-  form {
-    width: 80%;
-    
-    
-  }
-}
-
-
-
-@media(max-width: 396px) {
-  #app {
-    height: 100vh;
-    scroll-behavior: auto;
-  }
-    
-  .wrapper {
-    width: 100%;
-    padding: 15px;
-    border-radius: 1rem;
-    
-    
-  }
-
-  .false{
-    width: 80%;
-    margin-left: auto;
-   margin-right: auto;
-    
-  }
-
-  .ai {
-    background: #28282ecb;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
-  }
-
-  form {
-    width: 90%;
-    
-    
-  }
-}
-
-@media (max-width: 1400px){
-
-  #app {
-    height: 100vh;
-    scroll-behavior: auto;
-  }
-    
-  .wrapper {
-    width: 100%;
-    padding: 15px;
-    border-radius: 1rem;
-    
-    
-  }
-
-  .false{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .ai {
-    background: #28282ecb;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
-  }
-  form {
-    width: 90%;
-    
-  }
-}
