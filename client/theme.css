@@ -1,0 +1,39 @@
+.theme-btn {
+    background-color: transparent;
+    border-radius: 50%;
+    color: #fe0606;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
+    transition: color 1s ease;
+    
+}
+
+
+
+body.theme-light {
+    background: rgba(216, 213, 213, 0.859);
+    color: #0f0d0d;
+    transition: background-color 1s ease-in-out;
+}
+
+body.theme-light #undefined {
+    color: black;
+    font-weight: 500;
+    transition: color 1s ease;
+}
+
+
+body.theme-light .ai{
+    background: #1d1d24;
+    transition: background-color 1s ease-in-out;
+}
+
+body.theme-light .theme-btn{
+    color: #1d1d24;
+    transition: color 1s ease;
+}
