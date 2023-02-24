@@ -418,6 +418,9 @@ input[type="text"] {
 /* ====================================================================== */
 
 @media(max-width:400px){
+    body{
+    column-gap: normal;
+    }
     .left-nav{
         display: none;
     }
