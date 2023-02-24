@@ -8,19 +8,20 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
-    
 
 
     <link href='https://fonts.googleapis.com/css?family=Convergence' rel='stylesheet'>
-    
-        
 
 
+    <!-- =========================Font Awesome=========================== -->
+    <script src="https://kit.fontawesome.com/e98021e168.js" crossorigin="anonymous"></script>
+
+    <!-- -==================================================== -->
   </head>
   <body>
     
     <div class="left-nav">
-      <div class="nav-btn " >
+      <div class="nav-btn nav-btn-plus" >
         <box-icon name='plus-medical'></box-icon>
         <h2>New Chat</h2>
       </div>
@@ -34,7 +35,7 @@
         <box-icon name='home-alt-2' type='solid' ></box-icon>
         <h2>Home</h2>
       </div>
-      <div class="nav-btn " >
+      <div class="nav-btn share-btn" >
         <box-icon type='solid' name='share-alt'></box-icon>
         <h2>Share</h2>
       </div>
@@ -50,15 +51,17 @@
         <box-icon name='log-out' ></box-icon>
         <H2>Log Out</H2>
       </div>
-      <div class="nav-btn nav-img" >
+      <div class="nav-btn nav-img rating-btn" >
         <img src="https://www.scraping-bot.io/wp-content/uploads/2022/02/logo_scrapingbot-bot-blue_bg-FitCircle.png" alt="">
         <h2 class="fb">Did you like JockBot? <br><br>Rate my work </h2>
         <box-icon name='star-half' type='solid' ></box-icon>
       </div>
     </div>
-    
-    
+
     <div id="app">
+      
+      
+      
       <div id="chat_container"></div>
 
       <form>
@@ -68,6 +71,53 @@
 
       
       <button class="theme-btn">&#9728;</button>
+    </div>
+    
+
+    <!-- =============================== -->
+    <div class="container">
+      <div class="share-popup">
+        <div class="share-popup-content">
+          <div class="close-btn">X</div>
+          <img src="https://www.scraping-bot.io/wp-content/uploads/2022/02/logo_scrapingbot-bot-blue_bg-FitCircle.png" alt="">
+          <h2>Share JackBot with friends!</h2>
+          <div class="social-icons">
+            <a href="https://facebook.com"><i class="fab fa-facebook fb"></i></a>
+            <a href="https://web.whatsapp.com/"><i class="fa-brands fa-square-whatsapp wap"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram ig"></i></a>
+            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin li"></i></a>
+            <a href="https://github.com/"><i class="fa-brands fa-github git"></i></a>
+          </div>
+          <input type="text" value="https://jackbot-mocha.vercel.app/" id="share-link">
+          <button class="copy-link-btn">Copy Link</button>
+        </div>
+      </div>
+     
+    </div>
+    
+    
+    
+    <div class="rating-popup">
+      <div class="rating-header">
+        <h2>How was your experience with Jackbot?</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="stars">
+        <i class="far fa-star" data-rating="1"></i>
+        <i class="far fa-star" data-rating="2"></i>
+        <i class="far fa-star" data-rating="3"></i>
+        <i class="far fa-star" data-rating="4"></i>
+        <i class="far fa-star" data-rating="5"></i>
+      </div>
+      <textarea class="feedback" placeholder="Leave your feedback (optional)"></textarea>
+      <button class="submit-btn">Submit</button>
+    </div>
+
+    <div class="thank-you-popup">
+      <div class="popup-content">
+        <h2>Thank You for Your Feedback!</h2>
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+      </div>
     </div>
     
 
@@ -86,10 +136,11 @@
 
 
     <script type="module" src="script.js"></script>
-    <script  type="text/plain" src="designs.js"></script>
-     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     
-    
+    <script src="designs.js"></script>
+
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
 </html>
