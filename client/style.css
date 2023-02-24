@@ -30,6 +30,7 @@ html{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 #chat_container {
@@ -37,8 +38,8 @@ html{
   width: 100%;
   height: 85vh;
   
-  overflow: hidden;
-
+  
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   gap: 10px;
