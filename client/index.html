@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="animation.css">
 
 
     <link href='https://fonts.googleapis.com/css?family=Convergence' rel='stylesheet'>
@@ -43,7 +44,7 @@
         <box-icon name='customize' type='solid' ></box-icon>
         <h2>More</h2>
       </div>
-      <div class="nav-btn " >
+      <div class="nav-btn" id="history">
         <box-icon name='history' ></box-icon>
         <h2>history</h2>
       </div>
@@ -97,7 +98,9 @@
     
     
     
+    
     <div class="rating-popup">
+      
       <div class="rating-header">
         <h2>How was your experience with Jackbot?</h2>
         <button class="close-btn">&times;</button>
@@ -110,7 +113,7 @@
         <i class="far fa-star" data-rating="5"></i>
       </div>
       <textarea class="feedback" placeholder="Leave your feedback (optional)"></textarea>
-      <button class="submit-btn">Submit</button>
+      <button id="root"></button>
     </div>
 
     <div class="thank-you-popup">
@@ -122,7 +125,7 @@
     
 
     
-    
+    <div ></div>
 
 
 <!--  -->
@@ -139,8 +142,10 @@
 
     
     <script type="module" src="designs.js"></script>
+    <script type="module" src="animation.jsx"></script>
 
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    
   </body>
 </html>
