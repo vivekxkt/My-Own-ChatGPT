@@ -2,8 +2,10 @@ import bot from './assets/bot.svg';
 import user from './assets/user.svg';
 
 
+
 const form = document.querySelector('form');
 const chatConatiner = document.querySelector('#chat_container');
+
 
 let loadInterval;
 
@@ -65,16 +67,10 @@ function generateUniqueId(){
 }
 
 
-// Get the chat container element
-// const chatContainer = document.getElementById('chat_container');
+
 const chatContainer = document.getElementById('chat_container');
 
 
-// Function to scroll the chat container to the bottom
-// function scrollToBottom() {
-//   chatContainer.scrollTop = chatContainer.scrollHeight;
-//   // chatContainer.lastElementChild.scrollIntoView({ behavior: 'smooth' });
-// }
 
 function scrollToBottom() {
   chatContainer.scrollTo({
@@ -130,13 +126,30 @@ function chatStripe (isAi , value, uniqueId) {
 }
 
 
+// ============================History ================================================
 
+const chatHistory = [];
+
+
+function handleBotResponse(sender, message) {
+  const now = new Date();
+  const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+  chatHistory.push({ sender, message, timestamp });
+  console.log('Chathistory :', chatHistory);
+  
+}
 
 const handleSubmit = async (e) =>{
 
   e.preventDefault();
 
   const data = new FormData(form);
+
+   // Only add user's question to chat history
+
+  const now = new Date();
+  const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+  chatHistory.push({ sender: 'You', message: data.get('prompt'),timestamp });
 
   // Users chatstripe
 
@@ -176,6 +189,11 @@ const handleSubmit = async (e) =>{
     const data = await response.json();
     const parsedData = data.bot.trim();
 
+
+    // Call the function to handle the bot's response
+    handleBotResponse('JackBot', parsedData);
+
+
     typeText(
       messageDiv,
       parsedData,
@@ -197,7 +215,6 @@ const handleSubmit = async (e) =>{
 }
 
 
-
 form.addEventListener('submit',handleSubmit);
 form.addEventListener('keyup', (e) =>{
   if(e.keyCode ===13){
@@ -206,8 +223,54 @@ form.addEventListener('keyup', (e) =>{
 
 })
 
-// -----------------------------------------------------------------------------------------------------------------------------
+const downloadBtn = document.querySelector('#history');
 
+downloadBtn.addEventListener('click', () => {
+  const chatHistory = getChatHistory();
+  
+
+  var confirm_msg = confirm("Would you like to download a copy of Chat History ?")
+
+  
+  if(confirm_msg == true){
+
+    if (chatConatiner.innerHTML == ''){
+      alert("Cannot download empty data !")
+    }
+    else{
+      downloadChatHistory(chatHistory);
+    }
+   
+  }
+  
+});
+
+function getChatHistory() {
+  
+  return chatHistory.map(chat => `[ ${chat.timestamp} ]\n=> ${chat.sender}: ${chat.message} \n`).join('\n');
+}
+
+function downloadChatHistory(chatHistory) {
+  const fileName = 'chat_history.txt';
+  const fileContent = chatHistory;
+
+  // Create a new Blob object
+  const blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+
+  // Create a link to the file
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = fileName;
+
+  // Append the link to the document body
+  document.body.appendChild(link);
+
+  // Click the link to trigger the download
+  link.click();
+
+  // Remove the link from the document body after the download is complete
+  document.body.removeChild(link);
+}
 
 
 
