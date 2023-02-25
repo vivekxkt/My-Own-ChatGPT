@@ -126,7 +126,7 @@ submitBtn.addEventListener('click', () => {
       const now = new Date();
       const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
       reviewHistory.push({ sender:'User',feedback,timestamp });
-      console.log(reviewHistory)
+//       console.log(reviewHistory)
       
   }
 
