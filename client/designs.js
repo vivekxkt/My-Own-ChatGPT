@@ -39,7 +39,7 @@ shareModal.addEventListener('click' ,()=>{
 
 
 
-// 
+// share link and copy button
 
 const copyLinkBtn = document.querySelector('.copy-link-btn');
 const shareLink = document.querySelector('#share-link');
@@ -73,10 +73,12 @@ const ratingBtn = document.querySelector('.rating-btn');
 const ratingPopup = document.querySelector('.rating-popup');
 const stars = ratingPopup.querySelectorAll('.stars i');
 const textarea = ratingPopup.querySelector('.feedback');
-const submitBtn = ratingPopup.querySelector('.submit-btn');
+const submitBtn = ratingPopup.querySelector('#root');
 const closeBtn2 = ratingPopup.querySelector('.close-btn');
 const thankYouPopup = document.querySelector('.thank-you-popup');
 const closeThankYouBtn = thankYouPopup.querySelector('.close-btn');
+
+
 
 ratingBtn.addEventListener('click', () => {
   ratingPopup.style.display = 'block';
@@ -98,6 +100,7 @@ stars.forEach((star) => {
   });
 });
 
+const reviewHistory= []
 
 
 submitBtn.addEventListener('click', () => {
@@ -106,6 +109,7 @@ submitBtn.addEventListener('click', () => {
       // Get the rating and feedback
       const rating = ratingPopup.querySelector('.fas').getAttribute('data-rating');
       const feedback = textarea.value;
+
 
       // Hide the rating popup and show the "Thank You" popup
       ratingPopup.style.display = 'none';
@@ -117,11 +121,19 @@ submitBtn.addEventListener('click', () => {
         star.classList.add('far');
       });
       textarea.value = '';
+
+      // Saving review in history 
+      const now = new Date();
+      const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+      reviewHistory.push({ sender:'User',feedback,timestamp });
+      console.log(reviewHistory)
+      
   }
 
   catch(error){
     alert("Please rate some stars !")
   }
+  
   
 });
 
