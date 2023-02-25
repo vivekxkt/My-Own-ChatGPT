@@ -135,7 +135,7 @@ function handleBotResponse(sender, message) {
   const now = new Date();
   const timestamp = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
   chatHistory.push({ sender, message, timestamp });
-  console.log('Chathistory :', chatHistory);
+//   console.log('Chathistory :', chatHistory);
   
 }
 
